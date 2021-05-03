@@ -1,7 +1,5 @@
-import "../styles/globals.css";
-
-function MyApp({ Component, pageProps }) {
+const Biketastic = ({ Component, pageProps }) => {
   return <Component {...pageProps} />;
 }
 
-export default MyApp;
+export default Biketastic;
