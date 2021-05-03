@@ -1,27 +1,26 @@
 import Head from "next/head";
-import styles from "../styles/Home.module.css";
 
 export default function Home() {
   return (
-    <div className={styles.container}>
+    <div>
       <Head>
         <title>Biketastic</title>
         <meta name="description" content="Biketastic" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>
+      <main>
+        <h1>
           Welcome to <a href="https://biketastic.net">Biketastic!</a>
         </h1>
 
-        <p className={styles.description}>
+        <p>
           Get started by editing{" "}
-          <code className={styles.code}>pages/index.js</code>
+          <code>pages/index.js</code>
         </p>
       </main>
 
-      <footer className={styles.footer}>
+      <footer>
         <a href="https://biketastic.net" rel="noopener noreferrer">
           Powered by biketastic.net
         </a>
