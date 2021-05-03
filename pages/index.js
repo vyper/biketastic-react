@@ -1,30 +1,38 @@
-import Head from "next/head";
+import Layout from "../components/Layout";
+import Routes from "../components/Routes";
 
-export default function Home() {
+const Index = ({ routes }) => {
   return (
-    <div>
-      <Head>
-        <title>Biketastic</title>
-        <meta name="description" content="Biketastic" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
+    <Layout pageTitle="Biketastic">
       <main>
-        <h1>
-          Welcome to <a href="https://biketastic.net">Biketastic!</a>
-        </h1>
-
-        <p>
-          Get started by editing{" "}
-          <code>pages/index.js</code>
-        </p>
+        <Routes routes={routes} />
       </main>
-
-      <footer>
-        <a href="https://biketastic.net" rel="noopener noreferrer">
-          Powered by biketastic.net
-        </a>
-      </footer>
-    </div>
+    </Layout>
   );
+};
+
+export default Index;
+
+export async function getStaticProps() {
+  const routes = ((context) => {
+    const keys = context.keys();
+    const values = keys.map(context);
+
+    const data = keys.map((key, index) => {
+      let slug = key.replace(/^.*[\\\/]/, "").slice(0, -5);
+      const value = values[index];
+
+      return {
+        ...value,
+        slug,
+      };
+    });
+    return data;
+  })(require.context("../routes", true, /\.json$/));
+
+  return {
+    props: {
+      routes,
+    },
+  };
 }
