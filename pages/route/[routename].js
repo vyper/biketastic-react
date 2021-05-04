@@ -1,3 +1,6 @@
+import React from "react";
+import PropTypes from "prop-types";
+
 import Link from "next/link";
 
 import Layout from "../../components/Layout";
@@ -18,6 +21,10 @@ export default function Route({ title }) {
   );
 }
 
+Route.propTypes = {
+  title: PropTypes.string,
+};
+
 export async function getStaticProps({ ...ctx }) {
   const { routename } = ctx.params;
 
@@ -31,8 +38,8 @@ export async function getStaticProps({ ...ctx }) {
 export async function getStaticPaths() {
   const routeSlugs = ((context) => {
     const keys = context.keys();
-    const data = keys.map((key, _index) => {
-      let slug = key.replace(/^.*[\\\/]/, "").slice(0, -5);
+    const data = keys.map((key) => {
+      let slug = key.replace(/^.*[\\/]/, "").slice(0, -5);
 
       return slug;
     });

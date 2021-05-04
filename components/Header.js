@@ -1,6 +1,7 @@
+import React from "react";
 import Link from "next/link";
 
-export default function Header() {
+const Header = () => {
   return (
     <>
       <header className="header">
@@ -12,4 +13,6 @@ export default function Header() {
       </header>
     </>
   );
-}
+};
+
+export default Header;
