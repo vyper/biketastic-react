@@ -1,6 +1,8 @@
+import React from "react";
+import PropTypes from "prop-types";
 import Link from "next/link";
 
-export default function Routes({ routes }) {
+const Routes = ({ routes }) => {
   if (routes === "undefined") return null;
 
   return (
@@ -21,4 +23,14 @@ export default function Routes({ routes }) {
       </ul>
     </div>
   );
-}
+};
+
+Routes.propTypes = {
+  routes: PropTypes.arrayOf(
+    PropTypes.shape({
+      slug: PropTypes.string,
+    })
+  ),
+};
+
+export default Routes;

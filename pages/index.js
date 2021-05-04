@@ -1,3 +1,6 @@
+import React from "react";
+import PropTypes from "prop-types";
+
 import Layout from "../components/Layout";
 import Routes from "../components/Routes";
 
@@ -11,6 +14,14 @@ const Index = ({ routes }) => {
   );
 };
 
+Index.propTypes = {
+  routes: PropTypes.arrayOf(
+    PropTypes.shape({
+      slug: PropTypes.string,
+    })
+  ),
+};
+
 export default Index;
 
 export async function getStaticProps() {
@@ -19,7 +30,7 @@ export async function getStaticProps() {
     const values = keys.map(context);
 
     const data = keys.map((key, index) => {
-      let slug = key.replace(/^.*[\\\/]/, "").slice(0, -5);
+      let slug = key.replace(/^.*[\\/]/, "").slice(0, -5);
       const value = values[index];
 
       return {
