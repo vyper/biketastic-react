@@ -29,6 +29,7 @@ Routes.propTypes = {
   routes: PropTypes.arrayOf(
     PropTypes.shape({
       slug: PropTypes.string,
+      title: PropTypes.string,
     })
   ),
 };
