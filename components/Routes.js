@@ -15,7 +15,7 @@ const Routes = ({ routes }) => {
             return (
               <li key={route.slug}>
                 <Link href={{ pathname: `/route/${route.slug}` }}>
-                  <a>{route.title}</a>
+                  {route.title}
                 </Link>
               </li>
             );
