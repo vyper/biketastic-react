@@ -3,8 +3,6 @@ import PropTypes from "prop-types";
 import Link from "next/link";
 
 const Routes = ({ routes }) => {
-  if (routes === "undefined") return null;
-
   return (
     <div>
       {(!routes || routes.length == 0) && <div>No routes!</div>}
